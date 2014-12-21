@@ -21,7 +21,7 @@ data = np.array([
   [1, 0, 2, 3, 44],
   ])
 
-mx = dalmatian.matrix(labels, data)
+mx = dalmatian.Matrix(labels, data)
 
 #Options
 mx.cell_size = 10.0 #[mm]

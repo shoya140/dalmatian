@@ -1,3 +1,3 @@
 # coding:utf-8
 
-from matrix import Matrix as mx
+from matrix import Matrix

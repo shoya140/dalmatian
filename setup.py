@@ -6,10 +6,16 @@ try:
 except ImportError:
     print("Please install setuptools.")
 
+import os
+long_description = 'Visualizing a confusion matrix with gradations'
+if os.path.exists('README.txt'):
+    long_description = open('README.txt').read()
+
 setup(
     name  = 'dalmatian',
-    version = '0.1.0',
+    version = '0.1.4',
     description = 'Visualizing a confusion matrix with gradations',
+    long_description = long_description,
     license = 'MIT',
     author = 'Shoya Ishimaru',
     author_email = 'shoya.ishimaru@gmail.com',
