@@ -35,4 +35,4 @@ mx.percentage = False
 mx.draw()
 ```
 
-![](https://dl.dropboxusercontent.com/u/12208857/img/SIGraphocsKit_matrix_ss.png)
+![](https://www.dropbox.com/s/0xsy2wbolwmi9o5/github_dalmatian.png?raw=1)
