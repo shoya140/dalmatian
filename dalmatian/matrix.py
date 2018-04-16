@@ -5,6 +5,7 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.units import mm
 import colorsys
 
+
 class Matrix:
     def __init__(self, classes, data):
         self.margin_header = 8.0*mm
@@ -27,10 +28,10 @@ class Matrix:
         if self.percentage:
             self.font_size -= 3
         percentage_matrix = self.calculate_percentage()
-        for i in xrange(len(self.classes)):
-            for j in xrange(len(self.classes)):
+        for i in range(len(self.classes)):
+            for j in range(len(self.classes)):
                 x = self.margin_header + self.cell_size * i
-                y = self.margin_footer + self.cell_size * (len(self.classes) - 1 - j )
+                y = self.margin_footer + self.cell_size * (len(self.classes) - 1 - j)
                 self.draw_data(x, y, str(self.data[j][i]), percentage_matrix[j][i])
         if self.label_color == "white":
             self.cvs.setFillColorRGB(1, 1, 1)
@@ -40,7 +41,7 @@ class Matrix:
         self.draw_title()
         self.cvs.showPage()
         self.cvs.save()
-        print ">> Exported a matrix to ./out.pdf"
+        print(">> Exported a matrix to ./out.pdf")
 
     def draw_line(self):
         self.cvs.setLineWidth(0.5)
@@ -74,8 +75,7 @@ class Matrix:
         self.cvs.setFont("Helvetica", self.title_font_size)
         title = "Predicted class"
         text_width = self.cvs.stringWidth(title)
-        self.cvs.drawString(self.page_width/2 - text_width/2,
-                self.page_width - self.title_font_size*1.1, title)
+        self.cvs.drawString(self.page_width/2 - text_width/2, self.page_width - self.title_font_size*1.1, title)
 
         font_size = self.label_font_size
         for label in self.classes:
@@ -93,8 +93,7 @@ class Matrix:
         self.cvs.setFont("Helvetica", self.title_font_size)
         title = "Actual class"
         text_width = self.cvs.stringWidth(title)
-        self.cvs.drawString(self.page_width/2 - text_width/2,
-                - self.title_font_size*1.1, title)
+        self.cvs.drawString(self.page_width/2 - text_width/2, - self.title_font_size*1.1, title)
 
         font_size = self.label_font_size
         for label in self.classes:
