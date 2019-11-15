@@ -12,7 +12,7 @@ if os.path.exists('README.txt'):
 
 setup(
     name='dalmatian',
-    version='0.2.0',
+    version='0.2.3',
     description='Visualizing a confusion matrix with gradations',
     long_description=long_description,
     license='MIT',

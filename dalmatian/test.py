@@ -1,3 +1,3 @@
 # coding:utf-8
 
-from matrix import Matrix
+from .matrix import Matrix  # noqa
