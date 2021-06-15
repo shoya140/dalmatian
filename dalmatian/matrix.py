@@ -54,7 +54,7 @@ class Matrix:
 
     def draw_data(self, x, y, text, percentage):
         if self.percentage:
-            text = " %d%%" % int(percentage*100)
+            text = " %d%%" % int(round(percentage,2)*100)
         cell_color = self.calculate_color(percentage)
         self.cvs.setFillColorRGB(cell_color[0],cell_color[1],cell_color[2])
         self.cvs.rect(x, y, self.cell_size, self.cell_size, stroke=0, fill=1)
