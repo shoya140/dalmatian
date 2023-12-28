@@ -4,17 +4,20 @@ import numpy as np
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import mm
 import colorsys
+import os
 
 
 class Matrix:
-    def __init__(self, classes, data):
+    def __init__(self, classes, data, output_path="out.pdf"):
         self.margin_header = 8.0*mm
         self.margin_footer = 2.0*mm
         self.cell_size = 10.0*mm
         self.font_size = 14
         self.label_font_size = 7
         self.title_font_size = 9
-        self.cvs = canvas.Canvas("out.pdf")
+        self.output_path = output_path
+        os.makedirs(os.path.dirname(output_path), exist_ok=True)
+        self.cvs = canvas.Canvas(output_path)
         self.page_width = self.margin_header + len(classes)*self.cell_size + self.margin_footer
         self.cvs.setPageSize((self.page_width, self.page_width))
         self.percentage = False
@@ -41,7 +44,7 @@ class Matrix:
         self.draw_title()
         self.cvs.showPage()
         self.cvs.save()
-        print(">> Exported a matrix to ./out.pdf")
+        print(">> Matrix exported to ./" + self.output_path)
 
     def draw_line(self):
         self.cvs.setLineWidth(0.5)
